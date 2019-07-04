@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useReducer } from 'reinspect'
+import React, { useEffect, useReducer } from 'react'
+// import { useReducer } from 'reinspect'
 import axios from 'axios'
 import { 
   currencyListReducer,
@@ -13,7 +13,7 @@ import {
   currencyValueListAction
 } from './exchange-app.action'
 import CurrencyValue from '../currency-value';
-import { StyledExchangeApp } from './exchange-app.style';
+import { StyledExchangeApp, StyledTitle, StyledPicker, StyledSelect } from './exchange-app.style';
 
 const ExchangeApp = () => {
 
@@ -42,7 +42,7 @@ const ExchangeApp = () => {
          !currencyList.length && getBaseList(data)
          updateCurrencyList(data)
       })
-  }, [base, selectedDate])
+  }, [base, selectedDate, currencyList.length])
 
   const handleBaseCurrencyChange = (e) => {
     const { value } = e.target
@@ -77,16 +77,20 @@ const ExchangeApp = () => {
 
   return (
     <StyledExchangeApp>
-      <div><h1>Hello</h1></div>
-      <input
+      <StyledTitle><h1>exchangeRate</h1></StyledTitle>
+      <StyledPicker><input
         type="date"
+        style={{borderRadius: 10}}
         onChange={handleDateChange}
         defaultValue={today}
         max={today}/>
-      <select onChange={handleBaseCurrencyChange}>
-        {renderCurrencyList()}
-      </select>
-      <div style={{columnCount: 3}}>{renderCurrencyValueList()}</div>
+        <StyledSelect>
+          <select style={{padding:4, borderRadius: 10}} onChange={handleBaseCurrencyChange}>
+            {renderCurrencyList()}
+          </select>
+        </StyledSelect>
+      </StyledPicker>
+      <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList()}</div>
     </StyledExchangeApp>
   )
 }

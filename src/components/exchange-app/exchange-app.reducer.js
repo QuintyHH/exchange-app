@@ -28,6 +28,8 @@ export const currencyListReducer = (state, action) => {
     case CURRENCY_VALUE_LIST_UPDATE:
       newState.currencyValueList = action.currencyValueList
       break
+    default:
+      return newState
   }
   return newState
 }

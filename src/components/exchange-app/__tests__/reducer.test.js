@@ -1,14 +1,15 @@
-import { updateBaseAction, initCurrencyListAction, updateDateAction } from './exchange-app.action'
-import { CURRENCY_LIST_UPDATE_BASE, CURRENCY_LIST_INIT, CURRENCY_LIST_UPDATE_DATE } from './exchange-app.constant';
-import { currencyListReducer } from './exchange-app.reducer';
+import { updateBaseAction, initCurrencyListAction, updateDateAction } from '../exchange-app.action'
+import { CURRENCY_LIST_UPDATE_BASE, CURRENCY_LIST_INIT, CURRENCY_LIST_UPDATE_DATE } from '../exchange-app.constant';
+import { currencyListReducer } from '../exchange-app.reducer';
 
 describe("@ExchangeApp", () => {
   it("should create an action to update the base", () => {
+    const testCurrency ="RON"
     const expected = {
       base: "RON",
       type: CURRENCY_LIST_UPDATE_BASE
     }
-    const result = updateBaseAction("RON")
+    const result = updateBaseAction(testCurrency)
     expect(result).toEqual(expected)
   })
 
@@ -33,12 +34,12 @@ describe("@ExchangeApp", () => {
   })
 
   it("should initialize the currency list", () => {
-    const testArray = ["RON","GBP"]
+    const testCurrency = ["RON","GBP"]
     const expected = {
       base: "USD",
-      currencyList: testArray,
+      currencyList: testCurrency,
     }
-    const action = initCurrencyListAction(testArray)
+    const action = initCurrencyListAction(testCurrency)
     const result = currencyListReducer( { 
       base:"USD",
       currencyList: [] 
@@ -59,5 +60,18 @@ describe("@ExchangeApp", () => {
     }, action)
     expect(result).toEqual(expected)
   })
+
+  it("should update the selected date", () => {
+    const testDate = "2019-03-03"
+    const action = updateDateAction(testDate)
+    const expected = {
+      selectedDate: testDate,
+      currencyList: []
+    }
+    const result = currencyListReducer( {
+      selectedDate: "2019-03-03",
+      currencyList: []
+    }, action)
+    expect(result).toEqual(expected)
+  })
 })
- 

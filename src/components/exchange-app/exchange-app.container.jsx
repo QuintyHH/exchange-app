@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer } from 'react'
-// import { useReducer } from 'reinspect'
 import axios from 'axios'
 import { 
   currencyListReducer,
@@ -25,7 +24,6 @@ const ExchangeApp = () => {
   } = currencyState, dispatch ] = useReducer(currencyListReducer, currencyState )
 
   const getBaseList = (data) => {
-    // const firstKey = Object.keys(data.rates)[0]
     const newCurrencyList = Object.keys(data.rates)
     dispatch(initCurrencyListAction(newCurrencyList))
   }
@@ -36,7 +34,6 @@ const ExchangeApp = () => {
 
   useEffect(() => {
     selectedDate && axios
-    // .get(`https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=${base}`)
     .get(`https://api.exchangeratesapi.io/${selectedDate}?base=${base}`)
     .then(({ data }) => {
          !currencyList.length && getBaseList(data)
@@ -52,7 +49,6 @@ const ExchangeApp = () => {
   const handleDateChange = (e) => {
     const { value } = e.target 
     dispatch(updateDateAction(value))
-    // console.log(value)
   }
 
   const renderCurrencyList = () => currencyList.map((currency) => 

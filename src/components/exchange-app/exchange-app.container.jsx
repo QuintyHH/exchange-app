@@ -74,14 +74,17 @@ const ExchangeApp = () => {
   return (
     <StyledExchangeApp>
       <StyledTitle><h1>exchangeRate</h1></StyledTitle>
-      <StyledPicker><input
-        type="date"
-        style={{borderRadius: 10}}
-        onChange={handleDateChange}
-        defaultValue={today}
-        max={today}/>
+      <StyledPicker>
+        <input
+          type="date"
+          style={{borderRadius: 10}}
+          onChange={handleDateChange}
+          defaultValue={today}
+          max={today}/>
         <StyledSelect>
-          <select style={{padding:4, borderRadius: 10}} onChange={handleBaseCurrencyChange}>
+          <select 
+            style={{padding:4, borderRadius: 10}} 
+            onChange={handleBaseCurrencyChange}>
             {renderCurrencyList()}
           </select>
         </StyledSelect>

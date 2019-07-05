@@ -9,7 +9,7 @@ import {
   updateDateAction,
   updateBaseAction,
   initCurrencyListAction, 
-  currencyValueListAction
+  currencyValueListAction,
 } from './exchange-app.action'
 import CurrencyValue from '../currency-value';
 import { StyledExchangeApp, StyledTitle, StyledPicker, StyledSelect } from './exchange-app.style';
@@ -38,8 +38,8 @@ const ExchangeApp = () => {
     .then(({ data }) => {
          !currencyList.length && getBaseList(data)
          updateCurrencyList(data)
-      })
-  }, [base, selectedDate, currencyList.length])
+         })
+  }, [base, selectedDate])
 
   const handleBaseCurrencyChange = (e) => {
     const { value } = e.target
@@ -60,12 +60,13 @@ const ExchangeApp = () => {
     </option>
   )
 
-  const renderCurrencyValueList = () => {
+  const renderCurrencyValueList = (currencyValueList) => {
     const keysList = Object.keys(currencyValueList)
     return keysList.map((key) => {
       const currencyValuePropList = {
         currency: key,
-        value: currencyValueList[key]
+        value: currencyValueList[key],
+        selectedDate
       }
       return <CurrencyValue { ...currencyValuePropList } />
     })
@@ -73,7 +74,7 @@ const ExchangeApp = () => {
 
   return (
     <StyledExchangeApp>
-      <StyledTitle><h1>exchangeRate</h1></StyledTitle>
+      <StyledTitle>exchangeRate</StyledTitle>
       <StyledPicker>
         <input
           type="date"
@@ -89,7 +90,7 @@ const ExchangeApp = () => {
           </select>
         </StyledSelect>
       </StyledPicker>
-      <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList()}</div>
+      <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList(currencyValueList)}</div>
     </StyledExchangeApp>
   )
 }

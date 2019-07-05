@@ -54,8 +54,8 @@ const ExchangeApp = () => {
   const renderCurrencyList = () => currencyList.map((currency) => 
     <option 
       key={currency}
-      selected={currency === base}
-      value={currency}>
+      value={currency}
+      selected={currency === base}>
       {currency}
     </option>
   )

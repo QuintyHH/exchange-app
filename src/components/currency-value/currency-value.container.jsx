@@ -5,27 +5,22 @@ import { StyledCurrencyValue, StyledValue, StyledCurrency, StyledButton } from '
 const CurrencyValue = ({ currency, value, selectedDate }) => {
   value = value.toFixed(2)
   
-  const [baseCurrency, setBaseCurrency] = useState('')
-
-  useEffect(() => {
-    historyAPI()
-    console.log(selectedDate)
-  }, [selectedDate, baseCurrency])
+  const [baseHistoryCurrency, setBaseHistoryCurrency] = useState(currency)
 
   const historyAPI = () => {
     const calcDate = new Date(selectedDate)
-    const endDate = calcDate.toISOString().slice(0,10)
     const spanDate = (new Date(calcDate.setMonth(calcDate.getMonth() - 12)).toISOString()).slice(0,10)
-    selectedDate && baseCurrency  && axios
-    .get(`https://api.exchangeratesapi.io/history?start_at=${spanDate}&end_at=${endDate}&base=${baseCurrency}`)
+    baseHistoryCurrency && axios
+    .get(`https://api.exchangeratesapi.io/history?start_at=${spanDate}&end_at=${selectedDate}&base=${baseHistoryCurrency}`)
     .then(({ data }) => {
       console.log(data)
       })
   }
 
-  const handleBase = (e) => {
+  const handleBaseHistory = (e) => {
     const { value } = e.target 
-    setBaseCurrency(value)    
+    setBaseHistoryCurrency(value)
+    historyAPI()
   }
 
   return (
@@ -35,7 +30,7 @@ const CurrencyValue = ({ currency, value, selectedDate }) => {
         {value}
       </StyledValue>
         <StyledButton>
-          <button value={currency} onClick={handleBase}>History</button>
+          <button value={currency} onClick={handleBaseHistory}>History</button>
         </StyledButton>
     </StyledCurrencyValue>
   )

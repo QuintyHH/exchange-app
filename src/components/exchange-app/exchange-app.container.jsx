@@ -12,6 +12,7 @@ import {
   currencyValueListAction,
 } from './exchange-app.action'
 import CurrencyValue from '../currency-value';
+import HistoryList from '../history-list';
 import { StyledExchangeApp, StyledTitle, StyledPicker, StyledSelect } from './exchange-app.style';
 
 const ExchangeApp = () => {
@@ -66,10 +67,17 @@ const ExchangeApp = () => {
       const currencyValuePropList = {
         currency: key,
         value: currencyValueList[key],
-        selectedDate
       }
       return <CurrencyValue { ...currencyValuePropList } />
     })
+  }
+
+  const renderHistoryTable = (base, selectedDate) => {
+    const historyPropList = {
+      currency: base,
+      date: selectedDate
+    }
+    return <HistoryList {...historyPropList} />
   }
 
   return (
@@ -91,6 +99,7 @@ const ExchangeApp = () => {
         </StyledSelect>
       </StyledPicker>
       <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList(currencyValueList)}</div>
+      <div>{renderHistoryTable(base, selectedDate)}</div>
     </StyledExchangeApp>
   )
 }

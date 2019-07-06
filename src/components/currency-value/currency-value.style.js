@@ -24,6 +24,16 @@ export const StyledCurrency = styled.div`
   font-size: 15px;
   text-align: center;
 `
+
+export const StyledList = styled.div`
+  background-color: white;
+  width: 100%
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+`
+
 export const StyledValue = styled.div`
   font-size: 15px;
   flex-grow: 1;

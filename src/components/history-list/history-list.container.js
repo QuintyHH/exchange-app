@@ -7,11 +7,7 @@ const HistoryList = ({ currency, date }) => {
   const [historyData, setHistoryData] = useState({})
   const [currencyList, setCurrencyList] = useState([])
   const [historyList, setHistoryList] = useState([])
-
-  const format = (number) =>{
-   return number = number.toFixed(2)
-  }
-
+  
   useEffect(() => {
     const calcDate = new Date(date)
     const spanDate = (new Date(calcDate.setMonth(calcDate.getMonth() - 12)).toISOString()).slice(0,10)
@@ -22,12 +18,12 @@ const HistoryList = ({ currency, date }) => {
       setHistoryData(data.rates)
       setCurrencyList(Object.keys(data.rates[Object.keys(data.rates)[0]]))
       setHistoryList(Object.keys(data.rates))
-     })
+    })
   }, [date, currency])
-
-  // useEffect(() => {
-  //      console.log('test',currencyList, historyList)
-  // }, [historyData])
+  
+  const format = (number) =>{
+   return number = number.toFixed(2)
+  }
 
   return (
     <div>

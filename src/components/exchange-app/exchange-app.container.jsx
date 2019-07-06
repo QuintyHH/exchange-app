@@ -86,13 +86,12 @@ const ExchangeApp = () => {
       <StyledPicker>
         <input
           type="date"
-          style={{borderRadius: 10}}
           onChange={handleDateChange}
           defaultValue={today}
           max={today}/>
         <StyledSelect>
           <select 
-            style={{padding:4, borderRadius: 10}} 
+            style={{padding:4}} 
             onChange={handleBaseCurrencyChange}>
             {renderCurrencyList()}
           </select>

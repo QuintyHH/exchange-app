@@ -6,10 +6,8 @@ const CurrencyValue = ({ currency, value }) => {
 
   return (
     <StyledCurrencyValue> 
+      <StyledValue>{value}</StyledValue>
       <StyledCurrency>{currency}</StyledCurrency> 
-      <StyledValue>
-        {value}
-      </StyledValue>
     </StyledCurrencyValue>
   )
 }

@@ -10,7 +10,7 @@ export const StyledCurrencyValue = styled.div`
   transition: 0.25s;
 
   &:hover {
-    transform: scale(1.03)
+    transform: scale(1.04)
   }
 `
 export const StyledCurrency = styled.div`
@@ -28,10 +28,14 @@ export const StyledValue = styled.div`
   font-size: 15px;
   flex-grow: 1;
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 0px;
   text-align: right;
   justify-content: center;
   color: white;
   height: 100%;
   background-color: #E4A444;
+  font-weight: bold;
+  &:hover {
+      color:#59554F;
+    }
 `

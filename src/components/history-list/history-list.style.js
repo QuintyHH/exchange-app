@@ -14,6 +14,10 @@ export const StyledHistoryList = styled.table`
     border: 2px solid #E4A444
   }
 
+  td {
+    padding: 0 5px;
+  }
+
   tr:nth-child(odd) {
     background-color: #E4A444;
     color:white;

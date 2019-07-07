@@ -23,7 +23,11 @@ const HistoryList = ({ currency, date }) => {
   }, [date, currency])
   
   const format = (number) =>{
-   return number = number.toFixed(2)
+    if (number) {
+      return number = number.toFixed(2)
+    }
+    else
+      return number
   }
 
   return (

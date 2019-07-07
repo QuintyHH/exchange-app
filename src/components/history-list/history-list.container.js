@@ -1,5 +1,6 @@
 import React, {useState, useEffect }from 'react'
 import axios from 'axios'
+import { StyledHistoryList } from './history-list.style'
 
 const HistoryList = ({ currency, date }) => {
   
@@ -26,10 +27,11 @@ const HistoryList = ({ currency, date }) => {
   }
 
   return (
+    <StyledHistoryList>
     <div>
       <header>Displaying history for {currency} from {spanDate} to {date}</header>
-      <section>
-          <table border="1">
+        <section>
+          <table border="0">
             <thead>
               <tr>
               <td>Date</td>
@@ -55,6 +57,7 @@ const HistoryList = ({ currency, date }) => {
           </table>
         </section>
     </div>
+    </StyledHistoryList>
   )
 }
 

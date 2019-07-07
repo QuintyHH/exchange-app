@@ -14,20 +14,13 @@ export const StyledCurrencyValue = styled.div`
   }
 `
 export const StyledCurrency = styled.div`
+  box-sizing: border-box;
   background-color: #F5D4A3;
-  min-width: 35px;
+  min-width: 50px;
   color: #E4A444;
   padding: 5px;
   font-size: 15px;
   font-weight: bold;
-  text-align: center;
-`
-
-export const StyledList = styled.div`
-  background-color: white;
-  width: 100%
-  padding: 5px;
-  font-size: 15px;
   text-align: center;
 `
 
@@ -41,10 +34,4 @@ export const StyledValue = styled.div`
   color: white;
   height: 100%;
   background-color: #E4A444;
-`
-
-export const StyledButton = styled.div`
-  padding: 5px;
-  text-align: right;
-  justify-content: center;
 `

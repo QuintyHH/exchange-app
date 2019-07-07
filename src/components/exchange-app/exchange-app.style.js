@@ -13,8 +13,10 @@ margin-left: 10px;
 `
 
 export const StyledTitle = styled.h1`
-  margin: 0px;
+  padding: 20px
   text-align: left;
   font-size: 40px;
   color:  #E4A444;
+  background-color: #F5D4A3;
+  border: 5px solid #E4A444;
 `

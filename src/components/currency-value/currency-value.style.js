@@ -17,7 +17,7 @@ export const StyledCurrency = styled.div`
   box-sizing: border-box;
   background-color: #F5D4A3;
   min-width: 50px;
-  color: #E4A444;
+  color: #59554F;
   padding: 5px;
   font-size: 15px;
   font-weight: bold;

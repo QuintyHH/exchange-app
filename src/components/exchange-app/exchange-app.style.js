@@ -16,7 +16,7 @@ export const StyledTitle = styled.h1`
   padding: 20px
   text-align: left;
   font-size: 40px;
-  color:  #E4A444;
+  color:  #59554F;
   background-color: #F5D4A3;
   border: 5px solid #E4A444;
 `

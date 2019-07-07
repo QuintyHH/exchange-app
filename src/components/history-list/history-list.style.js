@@ -2,20 +2,22 @@ import styled from 'styled-components'
 
 export const StyledHistoryList = styled.table`
   text-align: center;
-    color:black;
-    font-weight:bold;
+  color:black;
+
   
   header {
+    font-weight:bold;
     font-size: 20px;
-    color: #E4A444;
+    color: #59554F;
     text-align: left;
     margin-bottom: 10px;
-    padding-left: 5px;
+    padding: 5px;
     border: 2px solid #E4A444
+    background-color: #F5D4A3;    
   }
 
   td {
-    padding: 0 5px;
+    padding: 0 2px;
   }
 
   tr:nth-child(odd) {

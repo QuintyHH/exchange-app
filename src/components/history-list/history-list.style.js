@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const StyledHistoryList = styled.table`
   text-align: center;
   color:black;
-
-  
+  font-size: 16px;
+ 
   header {
     font-weight:bold;
     font-size: 20px;
@@ -12,12 +12,12 @@ export const StyledHistoryList = styled.table`
     text-align: left;
     margin-bottom: 10px;
     padding: 5px;
-    border: 2px solid #E4A444
-    background-color: #F5D4A3;    
+    border: 2px solid #E4A444;
+    background-color: #F5D4A3;
   }
 
   td {
-    padding: 0 2px;
+    padding: 0 5px;
   }
 
   tr:nth-child(odd) {

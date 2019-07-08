@@ -38,9 +38,9 @@ const HistoryList = ({ currency, date }) => {
           <table border="0">
             <thead>
               <tr>
-              <td>DATE</td>
+                <td>DATE</td>
                  {currencyList.map((rate, key) => (
-                  <td key={key}>{rate}</td>
+                <td key={key}>{rate}</td>
                 ))}
               </tr>
             </thead>

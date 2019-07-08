@@ -8,7 +8,6 @@ export const StyledCurrencyValue = styled.div`
   margin-bottom: 6px;
   min-width: 200px;
   transition: 0.25s;
-
   &:hover {
     transform: scale(1.04)
   }

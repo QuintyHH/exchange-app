@@ -9,9 +9,10 @@ import {
   updateDateAction,
   updateBaseAction,
   initCurrencyListAction, 
-  currencyValueListAction
+  currencyValueListAction,
 } from './exchange-app.action'
 import CurrencyValue from '../currency-value';
+import HistoryList from '../history-list';
 import { StyledExchangeApp, StyledTitle, StyledPicker, StyledSelect } from './exchange-app.style';
 
 const ExchangeApp = () => {
@@ -38,8 +39,8 @@ const ExchangeApp = () => {
     .then(({ data }) => {
          !currencyList.length && getBaseList(data)
          updateCurrencyList(data)
-      })
-  }, [base, selectedDate, currencyList.length])
+         })
+  }, [base, selectedDate])
 
   const handleBaseCurrencyChange = (e) => {
     const { value } = e.target
@@ -54,42 +55,50 @@ const ExchangeApp = () => {
   const renderCurrencyList = () => currencyList.map((currency) => 
     <option 
       key={currency}
-      selected={currency === base}
-      value={currency}>
+      value={currency}
+      selected={currency === base}>
       {currency}
     </option>
   )
 
-  const renderCurrencyValueList = () => {
+  const renderCurrencyValueList = (currencyValueList) => {
     const keysList = Object.keys(currencyValueList)
     return keysList.map((key) => {
       const currencyValuePropList = {
         currency: key,
-        value: currencyValueList[key]
+        value: currencyValueList[key],
       }
       return <CurrencyValue { ...currencyValuePropList } />
     })
   }
 
+  const renderHistoryTable = (base, selectedDate) => {
+    const historyPropList = {
+      currency: base,
+      date: selectedDate
+    }
+    return <HistoryList {...historyPropList} />
+  }
+
   return (
     <StyledExchangeApp>
-      <StyledTitle><h1>exchangeRate</h1></StyledTitle>
+      <StyledTitle>exchangeRate</StyledTitle>
       <StyledPicker>
         <input
           type="date"
-          style={{borderRadius: 10}}
           onChange={handleDateChange}
           defaultValue={today}
           max={today}/>
         <StyledSelect>
           <select 
-            style={{padding:4, borderRadius: 10}} 
+            style={{padding:4}} 
             onChange={handleBaseCurrencyChange}>
             {renderCurrencyList()}
           </select>
         </StyledSelect>
       </StyledPicker>
-      <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList()}</div>
+      <div style={{columnCount: 3, margin: 5}}>{renderCurrencyValueList(currencyValueList)}</div>
+      <div>{renderHistoryTable(base, selectedDate)}</div>
     </StyledExchangeApp>
   )
 }

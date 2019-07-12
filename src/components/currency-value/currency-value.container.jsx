@@ -3,10 +3,11 @@ import { StyledCurrencyValue, StyledValue, StyledCurrency } from './currency-val
 
 const CurrencyValue = ({ currency, value }) => {
   value = value.toFixed(2)
+
   return (
     <StyledCurrencyValue> 
-      <StyledCurrency>{currency}</StyledCurrency> 
       <StyledValue>{value}</StyledValue>
+      <StyledCurrency>{currency}</StyledCurrency> 
     </StyledCurrencyValue>
   )
 }

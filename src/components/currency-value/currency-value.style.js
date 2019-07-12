@@ -2,35 +2,39 @@ import styled from 'styled-components'
 
 export const StyledCurrencyValue = styled.div`
   display: flex;
-  background-color: #036;
   font-size: 12px;
   justify-content: space-between;
   box-sizing: border-box;
-  border: 1px solid #000000;
-  border-radius : 10px;
   margin-bottom: 6px;
+  min-width: 200px;
   transition: 0.25s;
-
   &:hover {
-    transform: scale(1.06)
+    transform: scale(1.04)
   }
 `
 export const StyledCurrency = styled.div`
-  background-color: white;
-  min-width: 30px;
-  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #F5D4A3;
+  min-width: 50px;
+  color: #59554F;
   padding: 5px;
   font-size: 15px;
+  font-weight: bold;
   text-align: center;
 `
-export const StyledValue = styled.div`
 
+export const StyledValue = styled.div`
   font-size: 15px;
   flex-grow: 1;
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 0px;
   text-align: right;
   justify-content: center;
   color: white;
   height: 100%;
+  background-color: #E4A444;
+  font-weight: bold;
+  &:hover {
+      color:#59554F;
+    }
 `

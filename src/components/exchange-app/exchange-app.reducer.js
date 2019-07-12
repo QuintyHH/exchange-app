@@ -2,7 +2,7 @@ import {
   CURRENCY_LIST_INIT,
   CURRENCY_LIST_UPDATE_BASE,
   CURRENCY_LIST_UPDATE_DATE,
-  CURRENCY_VALUE_LIST_UPDATE
+  CURRENCY_VALUE_LIST_UPDATE,
 } from './exchange-app.constant'
 
 export const today = new Date().toISOString().slice(0, 10)
@@ -10,7 +10,7 @@ export const currencyState = {
   currencyList: [],
   base: 'GBP',
   selectedDate: today,
-  currencyValueList: {}
+  currencyValueList: {},
 }
 
 export const currencyListReducer = (state, action) => {
